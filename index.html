@@ -1,0 +1,131 @@
+<!DOCTYPE html>     
+<html lang="en-us">
+
+<head>
+    <title>Code Quiz</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+</head>
+
+<body>
+    
+    <!--Navigation bar-->
+    <nav class="navbar navbar-dark flex-column flex-sm-row bg-secondary text-light border-bottom">
+         
+        <!--Navigation header witgh name linking back to index page-->
+        <div class="header-container bg-info">
+           <a class="navbar-brand text-light font-weight-bold" id= "name" href="index.html">CODE QUIZ</a>
+        </div>           
+        
+        <!--Navigation items with vertical lines seperating-->
+        <ul class="navbar-nav flex-row float-right">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Quiz Home</a>
+            </li>
+            <li class="divider-vertical"></li>                
+            <li class="nav-item">
+                <a class="nav-link" href="portfolio.html">Highscores</a>
+            </li>
+        </ul>        
+        
+    </nav>
+
+    <!--Main Content-->
+    <main>
+ 
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-0">
+    
+                    <div class="container">
+                        
+                    </div>
+        
+                </div>
+                <!--Take up 9 columns on medium+ screens and 12 columns on smaller screens-->
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12" id="content-container">   
+                    
+                    
+
+                    <!--Landing Page Content-->
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12" id="landing-title">
+                            <h1 class="text-info text-center">Coding Quiz</h1>
+                            <hr>                               
+                            <p class="text-center">
+                                Try to answer the following code related questions within the time limit. Keep in mind that a wrong answer will penalise your time limit by 10 seconds! 
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 text-center" id="start-button">                               
+                            <button type="button" class="btn btn-danger btn-lg" id="start">Start Quiz</button>
+                        </div>
+                    </div>
+
+                    <!--Timer-->
+                    <div class="row hide" id="timer-container">
+                        <div class= "col-md-12"> 
+                            <p class = "text-sm-right">time: <span id="timer">0</span></p>
+                        </div>
+                    </div>
+
+                    <!--Questions Content-->
+                    <div class="row hide" id="questions-container">
+                        <div class="col-md-12 col-sm-12" >
+                            <h2 class="text-info text-center">This will be a Question</h2>
+                            <hr>                           
+                            <p class="text-center" id="answer-choices">
+                                This text should be hidden until start button clicked
+                            </p>
+                        </div>
+                    </div>            
+                </div>
+
+                <!--Score Content-->
+                <div class="row hide" id="score-container">
+                    <div class="col-md-12 col-sm-12" >
+                        <h1 class="text-info text-center">Score</h1>
+                        <hr>                           
+                        <p class="text-center">
+                            Your final score is: <span id="final-score"></span>
+                        </p>
+                    </div>
+                </div>            
+           
+    
+                <!--Take up 3 columns on medium+ screens and 12 columns on smaller screens-->
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-0">
+    
+                    <div class="container">
+                        
+                    </div>
+        
+                </div>
+    
+            </div>
+        
+        </div>
+    
+    </main>
+ 
+    <!--Sticky footer-->     
+    <footer class="footer bg-secondary fixed-bottom">
+            
+            
+        <div class="footer-border bg-info">
+        </div>
+
+        <div class="container">
+                            
+            <span>&copy; Copyright</span>
+           
+        </div>
+    </footer>
+    <script src="./script.js"></script>
+</body>
+
+</html>
