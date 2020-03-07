@@ -16,7 +16,7 @@ function runTimer () {
     
     time--;
     timerEl.textContent = time;
-    
+
     if(time <= 0) {
         //stop quiz function
         stopQuizFail()
@@ -142,22 +142,3 @@ function stopQuizFail(){
     $("#final-score").text("0")
 
 }
-
-//stop quiz function
-
-
-
-//action on click of right/wrong question
-
-// take away 10 seconds
-
-
-//move to highscores page
-
-//submit button for highscore page
-
-
-//bring in any stored highscores
-
-//store results to local storage
-
