@@ -1,42 +1,26 @@
 var questions = [
     {
         question: "what is 2+2",
-        answers: [
-            {text: "4", correct: true},
-            {text: "22", correct: false},
-            {text: "6", correct: false},
-            {text: "Don't know", correct: false}
-        ]
+        answers: ["4", "22", "6", "12"],
+        answer: "4",
     },
 
     {
         question: "what is 5*7",
-        answers: [
-            {text: "22", correct: false},
-            {text: "35", correct: true},
-            {text: "90", correct: false},
-            {text: "Don't know", correct: false},
-        ]
+        answers: ["22", "35", "90", "2"],
+        answer: "35",
     },
 
     {
         question: "what is 100/20",
-        answers: [
-            {text: "20", correct: false},
-            {text: "10", correct: false},
-            {text: "4", correct: false},
-            {text: "5", correct: true},
-        ]
+        answers: ["20", "10", "4", "5"],
+        answer: "5",
     },
 
     {
         question: "what is 6/3",
-        answers: [
-            {text: "42", correct: true},
-            {text: "24", correct: false},
-            {text: "3", correct: false},
-            {text: "15", correct: false},
-        ]
+        answers: ["2", "24", "3", "15"],
+        answer: "2",
     }
 ]
 

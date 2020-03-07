@@ -3,7 +3,7 @@ var timerEl = document.querySelector("#timer")
 var questionEl = document.getElementById("question-text")
 var answerButtonEl = document.querySelector("#answer-buttons")
 
-var questionIndex = 0
+
 var time = 75
 var counter
 var index = 0
@@ -54,36 +54,45 @@ function startQuiz () {
 function setQuestion() {
     var question = questions[index];
     $("#question-text").text(question.question);
-    $("#btnA").text(question.answers[0].text);
-    $("#btnB").text(question.answers[1].text);
-    $("#btnC").text(question.answers[2].text);
-    $("#btnD").text(question.answers[3].text);
+    $("#btnA").text(question.answers[0]);
+    $("#btnB").text(question.answers[1]);
+    $("#btnC").text(question.answers[2]);
+    $("#btnD").text(question.answers[3]);
+
+    
 
 };
 
 //show whether right or wrong (if wrong -15seconds) move to next question
 
-$("#answer-buttons").on("click", selectAnswer)
+$("#answer-buttons").on("click", checkAnswer)
 
 
-function selectAnswer(event) {
+function checkAnswer(event,) {
     var whichbtn = event.target.textContent;
-    var answer = whichbtn.text;
-    console.log(whichbtn);
-    console.log(answer);
-    console.log("random");
+    // console.log(whichbtn);
+    // console.log(index);
+    correctAnswer = questions[index].answer 
+    // console.log(correctAnswer)
+    // console.log(questions)
 
-    
-    
-    setNextQuestion()
-    
+   if (whichbtn === correctAnswer){
+        setNextQuestion()
+   }
+   else if((time-15)<=0){
+       stopQuiz()
+   }
+   else{     
+       time = time-15
+       setNextQuestion()
+   }
 
 };
 
 function setNextQuestion (){
     index++;
 
-    if(index>3){
+    if(index === questions.length){
         stopQuiz ()
     }
     else{
@@ -91,11 +100,11 @@ function setNextQuestion (){
     };
 }
 
-function checkAnswer(){
-
-}
 
 function stopQuiz(){
+
+    clearInterval(timer)
+    
     window.location.replace("index.html");
 }
 
