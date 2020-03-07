@@ -8,8 +8,7 @@ var time = 75
 var counter
 var index = 0
 
-//activate start button on click
-
+//activate start button on click and run startQuiz function
 $("#start").on("click", startQuiz)
 
 // set timer to decrement by 1 every interval and stop quiz when at 0
@@ -17,10 +16,10 @@ function runTimer () {
     
     time--;
     timerEl.textContent = time;
-
+    
     if(time <= 0) {
         //stop quiz function
-        stopQuiz()
+        stopQuizFail()
     };
     
 };
@@ -52,7 +51,9 @@ function startQuiz () {
 
 //Show question and answer choices
 function setQuestion() {
+    
     var question = questions[index];
+    //enter object data into html
     $("#question-text").text(question.question);
     $("#btnA").text(question.answers[0]);
     $("#btnB").text(question.answers[1]);
@@ -65,32 +66,39 @@ $("#answer-buttons").on("click", checkAnswer)
 
 // check if the answer is correct or not and take appropraite action
 function checkAnswer(event,) {
+    //retrieve the text of the answer button chosen
     var whichbtn = event.target.textContent;
-    // console.log(whichbtn);
-    // console.log(index);
+    
+    //retrieve the text of the answer from the questions object
     correctAnswer = questions[index].answer 
-    // console.log(correctAnswer)
-    // console.log(questions)
-
-   if (whichbtn === correctAnswer){
-        setNextQuestion()
-   }
-   else if((time-10)<=0){
+    
+    //if the answer chosen matches the answer within the questions object then set next questions index
+    if (whichbtn === correctAnswer){
+        setNextQuestionIndex()
+    }
+    //if the answer is not correct and there is less than 10 seconds on the clock show the end screen with a score of 0
+    else if((time-10)<=0){
        stopQuizFail()
-   }
-   else{     
+    }
+    //if the answer is not correct and the above does not apply take 10 seconds from the time and set the next question index
+    else{     
        time = time-10
-       setNextQuestion()
-   }
+       setNextQuestionIndex()
+    }
 
 };
 
-function setNextQuestion (){
+//Move to the next question index
+function setNextQuestionIndex (){
+    
+    //increase index reference by 1
     index++;
 
+    //if index reaches the end then stop the quiz
     if(index === questions.length){
         stopQuiz()
     }
+    //if index is within parameters pass index through to the set question function
     else{
         setQuestion(index);
     };
@@ -99,38 +107,40 @@ function setNextQuestion (){
 
 function stopQuiz(){
 
+    //stop the clock
     clearInterval(counter)
     
-    //unhide questions
+    //hide questions
     $("#questions-container").addClass("hide");    
 
-    //unhide timer
+    //hide timer
     $("#timer-container").addClass("hide");
 
-    //unhide timer
+    //unhide score container
     $("#score-container").removeClass("hide");
 
+    //show final score which is time left on clock
     $("#final-score").text(time)
 
-    
 }
 
 function stopQuizFail(){
 
+    //stop the clock
     clearInterval(counter)
     
-    //unhide questions
+    //hide questions
     $("#questions-container").addClass("hide");    
 
-    //unhide timer
+    //hide timer
     $("#timer-container").addClass("hide");
 
-    //unhide timer
+    //unhide score container
     $("#score-container").removeClass("hide");
 
+    //show final score of 0
     $("#final-score").text("0")
 
-    
 }
 
 //stop quiz function
