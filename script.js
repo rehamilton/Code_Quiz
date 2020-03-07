@@ -1,16 +1,18 @@
 var startButton = document.querySelector("#start")
 var timerEl = document.querySelector("#timer")
+var questionEl = document.getElementById("question-text")
+var answerButtonEl = document.querySelector("#answer-buttons")
 
-
-
-startButton.addEventListener("click", startQuiz)
-
-
-
+var questionIndex = 0
 var time = 75
 var counter
+var index = 0
 
-// timer down by 1 unless less than or equal to 0 when it should stop the quiz
+//activate start button on click
+
+$("#start").on("click", startQuiz)
+
+// set timer to decrement by 1 every interval and stop quiz when at 0
 function runTimer () {
     
     time--;
@@ -18,45 +20,84 @@ function runTimer () {
 
     if(time <= 0) {
         //stop quiz function
-    }
+        stopQuiz()
+    };
     
-}
+};
 
 //Move from landing screen to questions screen
 function startQuiz () {
 
     //hide start screen
-    var landingScreen = document.getElementById("landing-title");
-    landingScreen.setAttribute("class", "hide");
-
+    $("#landing-title").addClass("hide");
+   
     //hide start button
-    var startButton = document.getElementById("start-button");
-    startButton.setAttribute("class", "hide");
+    $("#start-button").addClass("hide");
 
     //unhide questions
-    var questionScreen = document.getElementById("questions-container");
-    questionScreen.setAttribute("class", "row unhide");
+    $("#questions-container").addClass("unhide");    
 
     //unhide timer
-    var timer = document.getElementById("timer-container");
-    timer.setAttribute("class", "row unhide");
+    $("#timer-container").addClass("unhide");    
 
     //set timer
     timerEl.textContent=time;
 
-    //run timer
+    //run timer at interval 1 second
     setInterval(runTimer, 1000);
-    
-}
 
-//Move through Questions
-function takeQuiz() {
+    setQuestion()
     
-    for(i=0; i<questions.length; i++) {
+};
 
+//Show question and answer choices
+function setQuestion() {
+    var question = questions[index];
+    $("#question-text").text(question.question);
+    $("#btnA").text(question.answers[0].text);
+    $("#btnB").text(question.answers[1].text);
+    $("#btnC").text(question.answers[2].text);
+    $("#btnD").text(question.answers[3].text);
+
+};
+
+//show whether right or wrong (if wrong -15seconds) move to next question
+
+$("#answer-buttons").on("click", selectAnswer)
+
+
+function selectAnswer(event) {
+    var whichbtn = event.target.textContent;
+    var answer = whichbtn.text;
+    console.log(whichbtn);
+    console.log(answer);
+    console.log("random");
+
+    
+    
+    setNextQuestion()
+    
+
+};
+
+function setNextQuestion (){
+    index++;
+
+    if(index>3){
+        stopQuiz ()
     }
+    else{
+        setQuestion(index);
+    };
 }
 
+function checkAnswer(){
+
+}
+
+function stopQuiz(){
+    window.location.replace("index.html");
+}
 
 //stop quiz function
 
