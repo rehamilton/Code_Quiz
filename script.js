@@ -35,16 +35,16 @@ function startQuiz () {
     $("#start-button").addClass("hide");
 
     //unhide questions
-    $("#questions-container").addClass("unhide");    
+    $("#questions-container").removeClass("hide");    
 
     //unhide timer
-    $("#timer-container").addClass("unhide");    
+    $("#timer-container").removeClass("hide");    
 
     //set timer
     timerEl.textContent=time;
 
     //run timer at interval 1 second
-    setInterval(runTimer, 1000);
+    counter = setInterval(runTimer, 1000);
 
     setQuestion()
     
@@ -58,16 +58,12 @@ function setQuestion() {
     $("#btnB").text(question.answers[1]);
     $("#btnC").text(question.answers[2]);
     $("#btnD").text(question.answers[3]);
-
-    
-
 };
 
-//show whether right or wrong (if wrong -15seconds) move to next question
-
+//when an answer button is clicked check if the answer is correct
 $("#answer-buttons").on("click", checkAnswer)
 
-
+// check if the answer is correct or not and take appropraite action
 function checkAnswer(event,) {
     var whichbtn = event.target.textContent;
     // console.log(whichbtn);
@@ -79,11 +75,11 @@ function checkAnswer(event,) {
    if (whichbtn === correctAnswer){
         setNextQuestion()
    }
-   else if((time-15)<=0){
-       stopQuiz()
+   else if((time-10)<=0){
+       stopQuizFail()
    }
    else{     
-       time = time-15
+       time = time-10
        setNextQuestion()
    }
 
@@ -93,7 +89,7 @@ function setNextQuestion (){
     index++;
 
     if(index === questions.length){
-        stopQuiz ()
+        stopQuiz()
     }
     else{
         setQuestion(index);
@@ -103,9 +99,38 @@ function setNextQuestion (){
 
 function stopQuiz(){
 
-    clearInterval(timer)
+    clearInterval(counter)
     
-    window.location.replace("index.html");
+    //unhide questions
+    $("#questions-container").addClass("hide");    
+
+    //unhide timer
+    $("#timer-container").addClass("hide");
+
+    //unhide timer
+    $("#score-container").removeClass("hide");
+
+    $("#final-score").text(time)
+
+    
+}
+
+function stopQuizFail(){
+
+    clearInterval(counter)
+    
+    //unhide questions
+    $("#questions-container").addClass("hide");    
+
+    //unhide timer
+    $("#timer-container").addClass("hide");
+
+    //unhide timer
+    $("#score-container").removeClass("hide");
+
+    $("#final-score").text("0")
+
+    
 }
 
 //stop quiz function
