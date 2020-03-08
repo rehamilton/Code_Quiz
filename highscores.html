@@ -51,16 +51,14 @@
                     <!--Landing Page Content-->
                     <div class="row">
                         <div class="col-md-12 col-sm-12" id="landing-title">
-                            <h1 class="text-info text-center">High Scores</h1>
+                            <h1 class="text-info text-center">Top 5 High Scores</h1>
                             <hr>                               
-                            <p class="text-center">
-                                Try to answer the following code related questions within the time limit. Keep in mind that a wrong answer will penalise your time limit by 10 seconds! 
-                            </p>
+                            <ol id="highscores"></ol>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12 col-sm-12 text-center" id="start-button">                               
-                            <button type="button" class="btn btn-danger btn-lg" id="start">Start Quiz</button>
+                            <button type="button" class="btn btn-info btn-lg" id="clear">Clear</button>
                         </div>
                     </div>
                 </div>
@@ -92,8 +90,8 @@
             <span>&copy; Copyright</span>
            
         </div>
-    </footer>
-    <script src="./script.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script></footer>
+    <script src="./highscores.js"></script>
 </body>
 
 </html>

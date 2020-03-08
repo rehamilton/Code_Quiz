@@ -1,12 +1,8 @@
-var startButton = document.querySelector("#start")
-var timerEl = document.querySelector("#timer")
-var questionEl = document.getElementById("question-text")
-var answerButtonEl = document.querySelector("#answer-buttons")
+var initialsEl = document.getElementById("initials");
 
-
-var time = 75
-var counter
-var index = 0
+var time = 60;
+var counter;
+var index = 0;
 
 //activate start button on click and run startQuiz function
 $("#start").on("click", startQuiz)
@@ -15,8 +11,8 @@ $("#start").on("click", startQuiz)
 function runTimer () {
     
     time--;
-    timerEl.textContent = time;
-
+    $("#timer").text(time);
+   
     if(time <= 0) {
         //stop quiz function
         stopQuizFail()
@@ -40,9 +36,9 @@ function startQuiz () {
     $("#timer-container").removeClass("hide");    
 
     //set timer
-    timerEl.textContent=time;
+    $("#timer").text(time);
 
-    //run timer at interval 1 second
+    //start timer countdown at interval 1 second
     counter = setInterval(runTimer, 1000);
 
     setQuestion()
@@ -128,6 +124,8 @@ function stopQuizFail(){
 
     //stop the clock
     clearInterval(counter)
+
+    time = 0
     
     //hide questions
     $("#questions-container").addClass("hide");    
@@ -140,5 +138,37 @@ function stopQuizFail(){
 
     //show final score of 0
     $("#final-score").text("0")
+
+}
+
+//when the submit button is pressed run a function to store the score
+$("#submit").on("click", submitScore);
+
+//functions stores the current score and initials
+function submitScore(event){
+    
+    var initials = initialsEl.value.trim()
+
+    // validate the fields
+    if (initialsEl.value === "") {
+    alert("Initials must be entered");
+    return
+    }
+    
+    //pull existing storage object or create a new one if there is nothing existing
+    var highscores = JSON.parse(localStorage.getItem("highscores")) || [];
+
+    //change score and initials to an array
+    var score = {
+        score: time,
+        initials: initials
+    }
+
+    //push score array to local storage
+    highscores.push(score);
+    window.localStorage.setItem("highscores", JSON.stringify(highscores));
+  
+    //Go to Highscores Page
+    window.location.href = "highscores.html"
 
 }
