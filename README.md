@@ -26,7 +26,7 @@ THEN I can save my initials and score
 
 # Solution Guide
 
-[Code Quiz Link](https://rehamilton.github.io/Code_Quiz/ "Code Quiz")
+# [Code Quiz Link](https://rehamilton.github.io/Code_Quiz/ "Code Quiz")
 
 ## Overall Process
 
