@@ -40,7 +40,7 @@ Below is a flowdiagram of the overall process.
 
 A welcome screen describing the quiz and the consequences of a wrong answer. Contains a start quiz button that, once clicked, moves you to the questions screen.
 
-![markdownAssets/startQuiz.png](https://github.com/rehamilton/Code_Quiz/blob/master/markdownAssets/startQuiz.PNG "Start Quiz")
+![markdownAssets/Quiz.png](https://github.com/rehamilton/Code_Quiz/blob/master/markdownAssets/Quiz.PNG "Quiz")
 
 ## Questions & Final Scores screen
 
