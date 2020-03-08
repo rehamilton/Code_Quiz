@@ -1,26 +1,26 @@
 var questions = [
     {
-        question: "what is 2+2",
-        answers: ["4", "22", "6", "12"],
-        answer: "4",
+        question: "How do you insert COMMENTS in Java code?",
+        answers: ["/*This is a comment", "//This is a comment", "*This is a comment", "This is a comment"],
+        answer: "//This is a comment",
     },
 
     {
-        question: "what is 5*7",
-        answers: ["22", "35", "90", "2"],
-        answer: "35",
+        question: "How do you create a variable with the numeric value 5?",
+        answers: ["num x = 5", "int x = 5", "x = 5", "float x = 5"],
+        answer: "int x = 5",
     },
 
     {
-        question: "what is 100/20",
-        answers: ["20", "10", "4", "5"],
-        answer: "5",
+        question: "Which method can be used to return a string in upper case letters?",
+        answers: ["upperCase()", "touppercase()", "tuc()", "toUpperCase()"],
+        answer: "toUpperCase()",
     },
 
     {
-        question: "what is 6/3",
-        answers: ["2", "24", "3", "15"],
-        answer: "2",
+        question: "To declare an array in Java, define the variable type with:",
+        answers: ["[]", "()", "{}", "<>"],
+        answer: "[]",
     }
 ]
 
