@@ -26,6 +26,8 @@ THEN I can save my initials and score
 
 # Solution Guide
 
+[Code Quiz Link](https://rehamilton.github.io/Code_Quiz/ "Code Quiz")
+
 ## Overall Process
 
 Below is a flowdiagram of the overall process.
@@ -49,4 +51,6 @@ This screen displays questions and answer choices and rund through the below log
 
 # Highscores Page
 
-This screen show the top 5 high scores and gives the option of clearing all score data from local storage.
+This screen show the top 5 high scores and gives the option of clearing all score data from local storage using the following logic.
+
+![markdownAssets/Highscores.png](https://github.com/rehamilton/Code_Quiz/blob/master/markdownAssets/Highscores.PNG "Highscores")
