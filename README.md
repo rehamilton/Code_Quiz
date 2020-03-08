@@ -38,17 +38,14 @@ Below is a flowdiagram of the overall process.
 
 A welcome screen describing the quiz and the consequences of a wrong answer. Contains a start quiz button that, once clicked, moves you to the questions screen.
 
-## Questions screen
+![markdownAssets/startQuiz.png](https://github.com/rehamilton/Code_Quiz/blob/master/markdownAssets/startQuiz.PNG "Start Quiz")
 
-This screen displays questions and answer choices. 
+## Questions & Final Scores screen
 
-- any wrong answer resulting in 10 seconds being removed from your time. 
-- If you have less then 10 seconds left on the clock and you giva a wrong answer you will automatically be taken to the final score screen with a score of 0. 
-- If you answer is correct you are moved onto the next question unless the last question has been reache, in which case you will be moved to the final score screen.
+This screen displays questions and answer choices and rund through the below logic before moving to the Highscores page
 
-## Final Score Screen
+![markdownAssets/Quiz.png](https://github.com/rehamilton/Code_Quiz/blob/master/markdownAssets/Quiz.PNG "Quiz")
 
-This screen shows your final score which is the final time left and allows you to enter your initials and submit your score to highscores. On submission the page takes you to the Highscores page so you can see where you rank.
 
 # Highscores Page
 

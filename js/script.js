@@ -100,7 +100,7 @@ function setNextQuestionIndex (){
     };
 }
 
-
+//stop quiz and register score as time left on clock
 function stopQuiz(){
 
     //stop the clock
@@ -120,6 +120,7 @@ function stopQuiz(){
 
 }
 
+//stop quiz and return score of 0
 function stopQuizFail(){
 
     //stop the clock
@@ -137,7 +138,7 @@ function stopQuizFail(){
     $("#score-container").removeClass("hide");
 
     //show final score of 0
-    $("#final-score").text("0")
+    $("#final-score").text(time)
 
 }
 
